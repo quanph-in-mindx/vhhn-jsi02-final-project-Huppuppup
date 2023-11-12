@@ -27,9 +27,40 @@ const signInWithGoogle = () => {
             // The signed-in user info.
             const user = result.user;
             console.log(user);
+            const ListPost = JSON.parse(localStorage.getItem("ListPost")) ?? [];
+            const Accounts = JSON.parse(localStorage.getItem("Accounts")) ?? [];
+            const USER = JSON.parse(localStorage.getItem("USER")) ?? [];
+            const GMAIL = JSON.parse(localStorage.getItem("GMAIL")) ?? [];
+            const bruhPost = JSON.parse(localStorage.getItem("bruhPost")) ?? [];
+            const ListFriend = JSON.parse(localStorage.getItem("ListFriend")) ?? [];
+            const username = user.displayName;
+            const gmail = user.email;
+            const icon = user.photoURL;
+            Accounts.push({
+                username, gmail, icon
+            })
+            const currentUser = {
+                User: username,
+                Gmail: gmail,
+                Icon: icon
+            }
+            USER.push(username)
+            GMAIL.push(gmail)
+            ListPost.push([])
+            ListFriend.push([])
+            console.log(ListFriend);
+            localStorage.setItem("ListPost", JSON.stringify(ListPost))
+            localStorage.setItem("ListFriend", JSON.stringify(ListFriend))
+            localStorage.setItem("CurrentUser", JSON.stringify(currentUser))
+            localStorage.setItem("Accounts", JSON.stringify(Accounts))
+            localStorage.setItem("USER", JSON.stringify(USER))
+            localStorage.setItem("GMAIL", JSON.stringify(GMAIL))
+            localStorage.setItem("bruhPost", JSON.stringify(bruhPost))
+            window.location.replace("http://127.0.0.1:5500/CK.html")
             // IdP data available using getAdditionalUserInfo(result)
             // ...
         }).catch((error) => {
+            console.log(error);
             // Handle Errors here.
             const errorCode = error.code;
             const errorMessage = error.message;

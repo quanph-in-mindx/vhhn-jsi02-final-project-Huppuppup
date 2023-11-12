@@ -1,0 +1,409 @@
+.Post{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: auto;
+    background-color: black;
+    padding: 10px;
+    border-radius: 25px;
+    margin-bottom: 40px;
+}
+#Post-crt{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    height: auto;
+    background-color: black;
+    padding: 10px;
+    border-radius: 25px;
+    align-items: center;
+}
+#btuh{
+    margin-left: 20px;
+}
+#Crt-input{
+    width: 426px;
+    border-radius: 25px;
+    margin-left: 4px;
+    color: black;
+    height: 50px;
+    font-size: 22px;
+}
+#Crt-img{
+    width: 80px;
+    height: 50px;
+    color: black;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 25px;
+}
+#Add-img{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+    height: auto;
+    background-color: black;
+    padding: 10px;
+    border-radius: 25px;
+    align-items: center;
+}
+#link{
+    width: 80px;
+    height: 50px;
+    color: black;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2px;
+}
+#link-text{
+    font-size: 25px;
+}
+#img-input{
+    width: 400px;
+    border-radius: 25px;
+    margin-left: 4px;
+    color: black;
+    height: 50px;
+    font-size: 22px;
+}
+#img-submit1{
+    width: 140px;
+    height: 50px;
+    color: black;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 25px;
+}
+
+#img-submit2{
+    width: 100px;
+    height: 50px;
+    color: black;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 25px;
+}
+
+.Post-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+}
+.Status_img{
+    width: 100%;
+    height: auto;
+    padding: 0px 4px 2px;
+}
+#Icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+}
+#Icon1{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+#Icon2{
+    margin-top: 4px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.Nickname{
+    color: white;
+    margin: 4px;
+    width: 220px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: black;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.Nickname2{
+    color: white;
+    width: 220px;
+    border-radius: 25px;
+    background-color: black;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.abc1{
+    margin-left: 6px;
+    font-size: 20px;
+    word-wrap: normal;
+}
+.abc2{
+    margin-left: 6px;
+    font-size: 18px;
+    word-wrap: normal;
+}
+.abc3{
+    margin-left: 6px;
+    font-size: 10px;
+    word-wrap: normal;
+}
+.Status{
+    margin: 4px;
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+}
+.abc2{
+    margin-left: 4px;
+    font-size: 26px ;
+    word-wrap: normal;
+}
+.Status_img{
+    border-radius: 25px;
+    margin-top: 10px;
+}
+#out{
+    width: 50px;
+    height: 50px;
+    margin-left: 8px;
+}
+#imG{
+    width: 70%;
+    height: auto;
+    background-color: black;
+    display: none;
+}
+#iMg{
+    width: 100%;
+    height: auto;
+}
+#a123{
+    display: none;
+}
+#x{
+    width: 60px;
+    height: 50px;
+    color: black;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 25px;
+}
+#b123{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+    height: auto;
+    background-color: black;
+    padding: 10px;
+    border-radius: 25px;
+    align-items: center;
+}
+#Time{
+    margin-left: 4px;
+}
+#SignOut{
+    width: 200px;
+    height: 52px;
+    color: white;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    position: relative;
+    top: 94px;
+    left: 32px;
+    z-index: 9999;
+}
+#SignOut:hover{
+    background-color: red;
+}
+#Home{
+    width: 200px;
+    height: 52px;
+    color: white;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    position: relative;
+    top: 94px;
+    left: 32px;
+    z-index: 9999;
+}
+#Home:hover{
+    background-color: rgb(28, 26, 26);
+}
+#Taskbar-Content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 1200px;
+    padding-right: 200px;
+}
+.Taskbar{
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+} 
+.cd{
+    margin-top: 20px ;
+    width: 100px;
+    height: 100%;
+    color: white; 
+    margin-top: 0px;
+    padding-top: 38px;
+    text-align: center;
+}
+#CD{
+    display: flex;
+    flex-direction: row;
+    width: 260px;
+    margin-left: 70px;
+}
+.container{
+    width: 100px;
+    margin: 0px;
+}
+#Profile{
+    color: white;
+    display: none;
+    flex-direction: row;
+    width: 700px;
+    height: auto;
+    background-color: black;
+    padding: 10px;
+    border-radius: 25px;
+    align-items: center;
+    margin-top: 20px;
+}
+#Icon3{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: black;
+}
+#vsName{
+    color: black;
+    margin: 4px;
+    width: 470px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 8px;
+    margin-right: 0px;
+}
+#c123{
+    margin-left: 4px;
+    font-size: 22px;
+    word-wrap: normal;
+}
+#addFriend{
+    width: 140px;
+    height: 50px;
+    color: black;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 25px;
+}
+#vsContent{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+.posts{
+    top: 20px;
+}
+#Profile2{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    height: auto;
+    background-color: black;
+    padding: 10px;
+    border-radius: 25px;
+    align-items: center;
+}
+#Icon32{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+}
+#vsName2{
+    color: black;
+    margin: 4px;
+    width: 270px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 8px;
+    margin-right: 0px;
+}
+#c1232{
+    margin-left: 4px;
+    font-size: 22px;
+    word-wrap: normal;
+}
+#addFriend2{
+    width: 140px;
+    height: 50px;
+    color: black;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 25px;
+}
