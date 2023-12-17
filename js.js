@@ -36,27 +36,39 @@ const signInWithGoogle = () => {
             const username = user.displayName;
             const gmail = user.email;
             const icon = user.photoURL;
-            Accounts.push({
-                username, gmail, icon
-            })
-            const currentUser = {
-                User: username,
-                Gmail: gmail,
-                Icon: icon
+            if(GMAIL.includes(gmail)){
+                const currentUser = {
+                    User: username,
+                    Gmail: gmail,
+                    Icon: icon
+                }
+                localStorage.setItem("CurrentUser", JSON.stringify(currentUser))
+                window.location.replace("http://127.0.0.1:5500/CK.html")
             }
-            USER.push(username)
-            GMAIL.push(gmail)
-            ListPost.push([])
-            ListFriend.push([])
-            console.log(ListFriend);
-            localStorage.setItem("ListPost", JSON.stringify(ListPost))
-            localStorage.setItem("ListFriend", JSON.stringify(ListFriend))
-            localStorage.setItem("CurrentUser", JSON.stringify(currentUser))
-            localStorage.setItem("Accounts", JSON.stringify(Accounts))
-            localStorage.setItem("USER", JSON.stringify(USER))
-            localStorage.setItem("GMAIL", JSON.stringify(GMAIL))
-            localStorage.setItem("bruhPost", JSON.stringify(bruhPost))
-            window.location.replace("http://127.0.0.1:5500/CK.html")
+            else{
+                Accounts.push({
+                    username, gmail, icon
+                })
+                const currentUser = {
+                    User: username,
+                    Gmail: gmail,
+                    Icon: icon
+                }
+                USER.push(username)
+                GMAIL.push(gmail)
+                ListPost.push([])
+                ListFriend.push([])
+                console.log(ListFriend);
+                localStorage.setItem("ListPost", JSON.stringify(ListPost))
+                localStorage.setItem("ListFriend", JSON.stringify(ListFriend))
+                localStorage.setItem("CurrentUser", JSON.stringify(currentUser))
+                localStorage.setItem("Accounts", JSON.stringify(Accounts))
+                localStorage.setItem("USER", JSON.stringify(USER))
+                localStorage.setItem("GMAIL", JSON.stringify(GMAIL))
+                localStorage.setItem("bruhPost", JSON.stringify(bruhPost))
+                window.location.replace("http://127.0.0.1:5500/CK.html")
+            }
+            
             // IdP data available using getAdditionalUserInfo(result)
             // ...
         }).catch((error) => {

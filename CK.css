@@ -2,57 +2,63 @@
     color: white;
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 100%;
     height: auto;
     background-color: black;
     padding: 10px;
-    border-radius: 25px;
-    margin-bottom: 40px;
+    border-radius: 10px;
 }
-#Post-crt{
-    color: white;
+#Content{
+    padding-right: 16px;
+    padding-left: 16px;
     display: flex;
     flex-direction: column;
-    width: 700px;
+    gap: 20px;
+}
+#Post-crt{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
     height: auto;
-    background-color: black;
-    padding: 10px;
-    border-radius: 25px;
     align-items: center;
+    border-bottom: 2px black solid;
 }
 #btuh{
     margin-left: 20px;
+    padding-top: 50px;
 }
 #Crt-input{
-    width: 426px;
-    border-radius: 25px;
+    width: 326px;
+    border-radius: 10px;
     margin-left: 4px;
     color: black;
     height: 50px;
     font-size: 22px;
+    border: 2px black solid;
 }
 #Crt-img{
     width: 80px;
     height: 50px;
     color: black;
     background-color: white;
-    border-radius: 25px;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-left: 8px;
     font-size: 25px;
+    border: 2px black solid;
 }
 #Add-img{
-    color: white;
+    color: black;
     display: flex;
     flex-direction: row;
-    width: 700px;
+    width: 600px;
     height: auto;
-    background-color: black;
     padding: 10px;
-    border-radius: 25px;
+    border-radius: 10px;
     align-items: center;
 }
 #link{
@@ -60,30 +66,32 @@
     height: 50px;
     color: black;
     background-color: white;
-    border-radius: 25px;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-right: 2px;
+    border: 2px black solid;
 }
 #link-text{
     font-size: 25px;
 }
 #img-input{
-    width: 400px;
-    border-radius: 25px;
+    width: 420px;
+    border-radius: 10px;
     margin-left: 4px;
     color: black;
     height: 50px;
     font-size: 22px;
+    border: 2px black solid;
 }
 #img-submit1{
     width: 140px;
     height: 50px;
     color: black;
     background-color: white;
-    border-radius: 25px;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -97,13 +105,14 @@
     height: 50px;
     color: black;
     background-color: white;
-    border-radius: 25px;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-left: 8px;
     font-size: 25px;
+    border: 2px black solid;
 }
 
 .Post-head{
@@ -129,6 +138,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    border: 2px black solid;
 }
 #Icon2{
     margin-top: 4px;
@@ -139,32 +149,34 @@
 .Nickname{
     color: white;
     margin: 4px;
-    width: 220px;
     height: 50px;
-    border-radius: 25px;
+    border-radius: 10px;
     background-color: black;
     display: flex;
     justify-content: left;
     align-items: center;
+    flex-grow: 1;
 }
 .Nickname2{
     color: white;
-    width: 220px;
-    border-radius: 25px;
+    border-radius: 10px;
     background-color: black;
     display: flex;
     justify-content: left;
     align-items: center;
+    width: 500px;
 }
 .abc1{
     margin-left: 6px;
-    font-size: 20px;
+    font-size: 26px;
     word-wrap: normal;
+    width: 100%;
 }
 .abc2{
     margin-left: 6px;
     font-size: 18px;
     word-wrap: normal;
+    width: auto;
 }
 .abc3{
     margin-left: 6px;
@@ -173,20 +185,19 @@
 }
 .Status{
     margin: 4px;
-    background-color: white;
-    color: black;
-    border-radius: 25px;
+    background-color: black;
+    color: white;
     display: flex;
     justify-content: left;
     align-items: flex-start;
 }
 .abc2{
     margin-left: 4px;
-    font-size: 26px ;
+    font-size: 30px ;
     word-wrap: normal;
 }
 .Status_img{
-    border-radius: 25px;
+    border-radius: 10px;
     margin-top: 10px;
 }
 #out{
@@ -212,24 +223,14 @@
     height: 50px;
     color: black;
     background-color: white;
-    border-radius: 25px;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-left: 8px;
     font-size: 25px;
-}
-#b123{
-    color: white;
-    display: flex;
-    flex-direction: row;
-    width: 700px;
-    height: auto;
-    background-color: black;
-    padding: 10px;
-    border-radius: 25px;
-    align-items: center;
+    border: 2px black solid;
 }
 #Time{
     margin-left: 4px;
@@ -239,13 +240,13 @@
     height: 52px;
     color: white;
     background-color: black;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     font-size: 25px;
-    position: relative;
-    top: 94px;
+    position: fixed;
+    top: 144px;
     left: 32px;
     z-index: 9999;
 }
@@ -257,18 +258,18 @@
     height: 52px;
     color: white;
     background-color: black;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     font-size: 25px;
-    position: relative;
+    position: fixed;
     top: 94px;
     left: 32px;
     z-index: 9999;
 }
 #Home:hover{
-    background-color: rgb(28, 26, 26);
+    background-color: rgb(70, 65, 65);
 }
 #Taskbar-Content{
     display: flex;
@@ -303,29 +304,26 @@
     margin: 0px;
 }
 #Profile{
-    color: white;
-    display: none;
-    flex-direction: row;
-    width: 700px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    width: 60px;
     height: auto;
-    background-color: black;
-    padding: 10px;
-    border-radius: 25px;
     align-items: center;
-    margin-top: 20px;
+    border-bottom: 2px black solid;
 }
 #Icon3{
     width: 50px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 10px;
     background-color: black;
 }
 #vsName{
     color: black;
     margin: 4px;
-    width: 470px;
+    width: 440px;
     height: 50px;
-    border-radius: 25px;
+    border-radius: 10px;
     background-color: white;
     display: flex;
     justify-content: left;
@@ -343,7 +341,7 @@
     height: 50px;
     color: black;
     background-color: white;
-    border-radius: 25px;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -354,10 +352,11 @@
 #vsContent{
     display: none;
     flex-direction: column;
-    align-items: center;
+    gap: 20px;
 }
 .posts{
-    top: 20px;
+    top: 60px;
+    left: 26px;
 }
 #Profile2{
     color: white;
@@ -367,7 +366,7 @@
     height: auto;
     background-color: black;
     padding: 10px;
-    border-radius: 25px;
+    border-radius: 10px;
     align-items: center;
 }
 #Icon32{
@@ -381,7 +380,7 @@
     margin: 4px;
     width: 270px;
     height: 50px;
-    border-radius: 25px;
+    border-radius: 10px;
     background-color: white;
     display: flex;
     justify-content: left;
@@ -399,11 +398,97 @@
     height: 50px;
     color: black;
     background-color: white;
-    border-radius: 25px;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-left: 8px;
     font-size: 25px;
+}
+#down{
+    background-color: yellow;
+    z-index: 9999999;
+    width: 100px;
+    height: 100px;
+}
+#butuba{
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 140px;
+    z-index: 9;
+    border-radius: 10px;
+    padding-left: 1.4%;
+    padding-top: 1.4%;
+    display: none;
+    left: 100px;
+}
+#lmmmmmm{
+    width: 100%;
+    height: 100%;
+}
+#butuba:hover{
+    background-color: rgb(121, 120, 120);
+}
+#b1234{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    height: auto;
+    padding: 10px;
+    align-items: center;
+}
+#b123{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    height: auto;
+    padding: 10px;
+    align-items: center;
+}
+.posts{
+    width: 620px;
+    padding: 0px;
+    margin-left: 340px;
+}
+#frnd{
+    width: 100%;
+    position: relative;
+    top: 100px;
+    left: 26px;
+}
+#frd-pro{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px black solid;
+}
+#Iicon{
+    width: 50px;
+    height: 50px;
+    border: 2px black solid;
+    border-radius: 50%;
+}
+#Iname{
+    margin-left: 6px;
+    font-size: 26px;
+    word-wrap: normal;
+    width: 100%;
+}
+#frd-add{
+    width: 140px;
+    height: 50px;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 25px;
+    border: 2px black solid;
 }

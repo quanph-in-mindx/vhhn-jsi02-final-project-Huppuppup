@@ -12,7 +12,6 @@ function submit() {
     const icon = document.getElementById("icon").value;
 
     if (isUsed(username)) {
-        alert("Username not available")
     }
     else {
 

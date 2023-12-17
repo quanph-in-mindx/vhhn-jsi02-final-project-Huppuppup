@@ -6,14 +6,16 @@ const Account = JSON.parse(localStorage.getItem("Accounts"))
 const currentUser = JSON.parse(localStorage.getItem("CurrentUser"))
 const currentPlace = USER.indexOf(currentUser.User)
 const currentListFriend = ListFriend[USER.indexOf(currentUser.User)]
-document.getElementById("Icon1").insertAdjacentHTML("afterbegin",`<img style="border-radius: 50%;" src="${currentUser.Icon}" alt="">`)
+document.getElementById("Icon1").insertAdjacentHTML("afterbegin", `<img style="border-radius: 50%;" src="${currentUser.Icon}" alt="">`)
 var Friend = false
 const bruhPost = JSON.parse(localStorage.getItem("bruhPost"))
 var imgDIS = false
+var c = false
 
-document.getElementById("IconM").insertAdjacentHTML("afterbegin",` <img onclick="inspect('${currentUser.User}')" style="border-radius: 50%; height = 100px" src="${currentUser.Icon}" alt="" id="Icon1">`)
-document.getElementById("Mname").insertAdjacentHTML("afterbegin",`<div onclick="inspect('${currentUser.User}')" class="Nickname2"><p class="abc2">${currentUser.User}</p></div>`)
-document.getElementById("Mmail").insertAdjacentHTML("afterbegin",`<div onclick="inspect('${currentUser.User}')" class="Nickname2"><p class="abc3">${currentUser.Gmail}</p></div>`)
+
+document.getElementById("IconM").insertAdjacentHTML("afterbegin", `<img onclick="askfalfkalfkj()" style="border-radius: 50%; height = 100px" src="${currentUser.Icon}" alt="" id="Icon1">`)
+document.getElementById("Mname").insertAdjacentHTML("afterbegin", `<div onclick="askfalfkalfkj()" class="Nickname2"><p class="abc2">${currentUser.User}</p></div>`)
+document.getElementById("Mmail").insertAdjacentHTML("afterbegin", `<div onclick="askfalfkalfkj()" class="Nickname2"><p class="abc3">${currentUser.Gmail}</p></div>`)
 
 function submitIMG() {
     const img1 = document.getElementById("img-input").value
@@ -38,15 +40,22 @@ function pickIMG() {
     if (imgDIS == false) {
         document.getElementById("a123").style.display = "flex"
         imgDIS = true
+        const img1 = document.getElementById("img-input").value
+        setInterval(submitIMG, 500)
     }
 }
 function endPickIMG() {
     if (imgDIS == true) {
         document.getElementById("a123").style.display = "none"
         imgDIS = false
+        clearInterval(submitIMG)
+        IMG.style.display = "none"
+        IMG.innerHTML = ""
+        document.getElementById("img-input").value = ""
     }
 }
 function creatPost() {
+    clearInterval(submitIMG)
     if (document.getElementById("Crt-input").value == "") {
         alert("You need to write something to post")
     }
@@ -150,27 +159,61 @@ for (let i = 0; i < bruhPost.length; i += 1) {
     }
 }
 function out() {
+    c = false
+    document.getElementById("Home").style.display = "none"
+    document.getElementById("SignOut").style.display = "none"
     currentUser.User = ""
     currentUser.Pass = ""
     currentUser.Icon = ""
     localStorage.setItem("CurrentUser", JSON.stringify(currentUser))
 }
+
+function ADD() {
+    if (Friend == true) {
+        currentListFriend.splice(currentListFriend.indexOf(Iname), 1)
+        Friend = false
+        document.getElementById("frd-add").innerHTML = "Add"
+        localStorage.setItem("ListFriend", JSON.stringify(ListFriend))
+    }
+    else if (Friend == false) {
+        currentListFriend.unshift(Iname.innerText)
+        Friend = true
+        document.getElementById("frd-add").innerHTML = "Unfriend"
+        localStorage.setItem("ListFriend", JSON.stringify(ListFriend))
+    }
+}
 function inspect(x) {
     const xUser = x
     const xIcon = Account[USER.indexOf(x)].icon
     const xListPost = ListPost[USER.indexOf(x)]
-    console.log(ListPost[USER.indexOf(x)]);
     document.getElementById("vsContent").innerHTML = ""
-    document.getElementById("Icon3").innerHTML = ""
     document.getElementById("Post-crt").style.display = "none"
     document.getElementById("Content").style.display = "none"
-    document.getElementById("Profile").style.display = "flex"
     document.getElementById("vsContent").style.display = "flex"
-    document.getElementById("Icon3").insertAdjacentHTML("afterbegin",`<img style="border-radius: 50%;" src="${xIcon}" alt="">`)
-    document.getElementById("c123").innerHTML = xUser
+    document.getElementById("butuba").style.display = "block"
+    if(ListFriend[USER.indexOf(currentUser.User)].includes(xUser)){
+        var Friend = true
+        console.log(Friend);
+    }
+    else{
+        var Friend = false
+        console.log(Friend);
+    }
     if (xUser == currentUser.User) {
-        document.getElementById("addFriend").style.display = "none"
-        document.getElementById("Profile").style.width = "540px"
+        document.getElementById("vsContent").insertAdjacentHTML("afterbegin",`<div id="frd-pro">
+        <img id="Iicon" src="${xIcon}" alt="">
+        <div id="Iname">${xUser}</div>
+    </div>`)
+    }
+    else{
+        document.getElementById("vsContent").insertAdjacentHTML("afterbegin",`<div id="frd-pro">
+        <img id="Iicon" src="${xIcon}" alt="">
+        <div id="Iname">${xUser}</div>
+        <a id="frd-add" onclick="ADD()">Add</a>
+    </div>`)
+    }
+    
+    if (xUser == currentUser.User) {
         if (xListPost.length == 0) {
             document.getElementById("Content").insertAdjacentHTML("beforeend", "There is no post")
         }
@@ -204,18 +247,8 @@ function inspect(x) {
             }
         }
     }
+
     else {
-        document.getElementById("addFriend").style.display = "flex"
-        document.getElementById("Profile").style.width = "700px"
-        Friend = false
-        if (currentListFriend.includes(document.getElementById("c123").innerHTML)) {
-            Friend = true
-            document.getElementById("addFriend").innerHTML = "Unfriend"
-        }
-        else {
-            Friend = false
-            document.getElementById("addFriend").innerHTML = "Add friend"
-        }
         if (xListPost.length == 0) {
             document.getElementById("Content").insertAdjacentHTML("beforeend", "There is no post")
         }
@@ -250,54 +283,70 @@ function inspect(x) {
         }
     }
 }
+
 function back() {
+    ;
     document.getElementById("vsContent").innerHTML = ""
     document.getElementById("Content").innerHTML = ""
     document.getElementById("Post-crt").style.display = "flex"
-    document.getElementById("Content").style.display = "block"
-    document.getElementById("Profile").style.display = "none"
+    document.getElementById("Content").style.display = "flex"
     document.getElementById("vsContent").style.display = "none"
     document.getElementById("vsContent").innerHTML = ""
     document.getElementById("p123").style.display = "none"
+    document.getElementById("butuba").style.display = "none"
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    for (let i = 0; i < bruhPost.length; i += 1) {
+        if (bruhPost[i].Img == "") {
+            document.getElementById("Content").insertAdjacentHTML("beforeend", `<div class="Post">
+        <div class="Post-head">
+            <img onclick="inspect('${bruhPost[i].User}')" style="border-radius: 50%;" src="${bruhPost[i].Icon}" alt="" id="Icon2">
+            <div onclick="inspect('${bruhPost[i].User}')" class="Nickname"><p class="abc1">${bruhPost[i].User}</p></div>
+        </div>
+        <div class="Post-content">
+            <div id="Time">${bruhPost[i].Hour}:${bruhPost[i].Minute} / ${bruhPost[i].Month}-${bruhPost[i].Day}-${bruhPost[i].Year}</div>
+            <div class="Status"><p class="abc2">${bruhPost[i].Status}</p></div>
+        </div>
+    </div>`)
+        }
+        else {
+            document.getElementById("Content").insertAdjacentHTML("beforeend", `<div class="Post">
+        <div class="Post-head">
+            <img onclick="inspect('${bruhPost[i].User}')" style="border-radius: 50%;" src="${bruhPost[i].Icon}" alt="" id="Icon2">
+            <div onclick="inspect('${bruhPost[i].User}')" class="Nickname"><p class="abc1">${bruhPost[i].User}</p></div>
+        </div>
+        <div class="Post-content">
+            <div id="Time">${bruhPost[i].Hour}:${bruhPost[i].Minute} / ${bruhPost[i].Month}-${bruhPost[i].Day}-${bruhPost[i].Year}</div>
+            <div class="Status"><p class="abc2">${bruhPost[i].Status}</p></div>
+            <img class="Status_img" src="${bruhPost[i].Img}" alt="">
+        </div>
+    </div>`)
+        }
+    }
 }
 
-
-function add() {
-    if (Friend == true) {
-        currentListFriend.splice(currentListFriend.indexOf(document.getElementById("c123").innerHTML), 1)
-        Friend = false
-        document.getElementById("addFriend").innerHTML = "Add friend"
-        localStorage.setItem("ListFriend", JSON.stringify(ListFriend))
-    }
-    else if (Friend == false) {
-        currentListFriend.unshift(document.getElementById("c123").innerHTML)
-        Friend = true
-        document.getElementById("addFriend").innerHTML = "Unfriend"
-        localStorage.setItem("ListFriend", JSON.stringify(ListFriend))
-    }
-}
 
 function MyAccount() {
     const currentListPost = ListPost[USER.indexOf(currentUser.User)]
+    c = false
+    document.getElementById("Home").style.display = "none"
+    document.getElementById("SignOut").style.display = "none"
     document.getElementById("vsContent").innerHTML = ""
-    document.getElementById("Icon3").innerHTML = ""
     document.getElementById("Content").innerHTML = ""
     document.getElementById("Post-crt").style.display = "none"
     document.getElementById("Content").style.display = "none"
-    document.getElementById("Profile").style.display = "flex"
     document.getElementById("vsContent").style.display = "flex"
-    document.getElementById("Icon3").insertAdjacentHTML("afterbegin",`<img style="border-radius: 50%;" src="${currentUser.Icon}" alt="">`)
-    document.getElementById("c123").innerHTML = currentUser.User
     document.getElementById("p123").style.display = "none"
+    document.getElementById("butuba").style.display = "block"
+    document.getElementById("butuba").style.position = "fixed"
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     if (currentListPost.length == 0) {
         document.getElementById("vsContent").insertAdjacentHTML("beforeend", "There is no post")
     }
     else {
         for (let i = 0; i < currentListPost.length; i += 1) {
             if (currentListPost[i].Img == "") {
-                document.getElementById("addFriend").style.display = "none"
-                console.log(document.getElementById("addFriend").style.display);
-                document.getElementById("Profile").style.width = "540px"
                 document.getElementById("vsContent").insertAdjacentHTML("beforeend", `<div class="Post">
             <div class="Post-head">
                 <img style="border-radius: 50%;" src="${currentListPost[i].Icon}" alt="" id="Icon2">
@@ -310,9 +359,6 @@ function MyAccount() {
         </div>`)
             }
             else {
-                document.getElementById("addFriend").style.display = "none"
-                console.log(document.getElementById("addFriend").style.display);
-                document.getElementById("Profile").style.width = "540px"
                 document.getElementById("vsContent").insertAdjacentHTML("beforeend", `<div class="Post">
             <div class="Post-head">
                 <img style="border-radius: 50%;" src="${currentListPost[i].Icon}" alt="" id="Icon2">
@@ -330,52 +376,15 @@ function MyAccount() {
 }
 
 
-
-
-function genFrd() {
-    document.getElementById("Profile").style.display = "none"
-    document.getElementById("vsContent").innerHTML = ""
-    document.getElementById("Post-crt").style.display = "none"
-    document.getElementById("Content").style.display = "none"
-    document.getElementById("vsContent").style.display = "flex"
-    if (currentListFriend.length == 0) {
-        document.getElementById("p123").style.display = "block"
-        document.getElementById("vsContent").style.display = "none"
+function askfalfkalfkj() {
+    if (c == true) {
+        document.getElementById("Home").style.display = "none"
+        document.getElementById("SignOut").style.display = "none"
+        c = false
     }
-    else if (currentListFriend.length > 0) {
-        for (let i = 0; i < currentListFriend.length; i += 1) {
-            console.log(i);
-            document.getElementById("vsContent").insertAdjacentHTML("afterbegin", `<div id="Profile2">
-            <div style="background-color: ${Account[USER.indexOf(currentListFriend[i])].icon};" id="Icon3"></div>
-            <div id="vsName2"><p id="c1232">${currentListFriend[i]}</p></div>
-            <div onclick="Unfriend('${currentListFriend[i]}')" id="addFriend2">Unfriend</div>
-        </div>
-        <br></br>`)
-        }
-    }
-}
-function Unfriend(b) {
-    console.log(b);
-    document.getElementById("Profile").style.display = "none"
-    currentListFriend.splice(currentListFriend.indexOf(b),1)
-    localStorage.setItem("ListFriend", JSON.stringify(ListFriend))
-    document.getElementById("vsContent").innerHTML = ""
-    document.getElementById("Post-crt").style.display = "none"
-    document.getElementById("Content").style.display = "none"
-    document.getElementById("vsContent").style.display = "flex"
-    if (currentListFriend.length == 0) {
-        document.getElementById("p123").style.display = "block"
-        document.getElementById("vsContent").style.display = "none"
-    }
-    else if (currentListFriend.length > 0) {
-        for (let i = 0; i < currentListFriend.length; i += 1) {
-            console.log(i);
-            document.getElementById("vsContent").insertAdjacentHTML("afterbegin", `<div id="Profile2">
-            <div style="background-color: ${Account[USER.indexOf(currentListFriend[i])].icon};" id="Icon3"></div>
-            <div id="vsName2"><p id="c1232">${currentListFriend[i]}</p></div>
-            <div onclick="Unfriend('${currentListFriend[i]}')" id="addFriend2">Unfriend</div>
-        </div>
-        <br></br>`)
-        }
+    else {
+        document.getElementById("Home").style.display = "flex"
+        document.getElementById("SignOut").style.display = "flex"
+        c = true
     }
 }
