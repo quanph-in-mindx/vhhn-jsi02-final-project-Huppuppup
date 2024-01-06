@@ -27,6 +27,7 @@
 #btuh{
     margin-left: 20px;
     padding-top: 50px;
+    width: 600px;
 }
 #Crt-input{
     width: 326px;
@@ -455,10 +456,13 @@
     margin-left: 340px;
 }
 #frnd{
-    width: 100%;
+    width:362px;
     position: relative;
     top: 100px;
     left: 26px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
 }
 #frd-pro{
     width: 100%;
@@ -491,4 +495,43 @@
     margin-left: 8px;
     font-size: 25px;
     border: 2px black solid;
+}
+#frd-e{
+    width: 100%;
+    height: 64px;
+    border-bottom: 2px black solid;
+    display: flex;
+    flex-direction: row;
+    padding: 6px;
+}
+#frd-icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px black solid;
+}
+#frd-name{
+    margin-left: 6px;
+    font-size: 22px;
+    word-wrap: normal;
+    width: auto;
+    padding-top: 6px;
+}
+#unfriend{
+    width: 100px;
+    height: 50px;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 25px;
+    border: 2px black solid;
+}
+#frnd-content{
+    display: flex;
+    flex-direction: column;
 }

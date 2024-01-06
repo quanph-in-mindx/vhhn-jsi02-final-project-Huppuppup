@@ -167,18 +167,19 @@ function out() {
     currentUser.Icon = ""
     localStorage.setItem("CurrentUser", JSON.stringify(currentUser))
 }
-
 function ADD() {
     if (Friend == true) {
         currentListFriend.splice(currentListFriend.indexOf(Iname), 1)
         Friend = false
         document.getElementById("frd-add").innerHTML = "Add"
+        genfrd()
         localStorage.setItem("ListFriend", JSON.stringify(ListFriend))
     }
     else if (Friend == false) {
         currentListFriend.unshift(Iname.innerText)
         Friend = true
         document.getElementById("frd-add").innerHTML = "Unfriend"
+        genfrd()
         localStorage.setItem("ListFriend", JSON.stringify(ListFriend))
     }
 }
@@ -191,14 +192,7 @@ function inspect(x) {
     document.getElementById("Content").style.display = "none"
     document.getElementById("vsContent").style.display = "flex"
     document.getElementById("butuba").style.display = "block"
-    if(ListFriend[USER.indexOf(currentUser.User)].includes(xUser)){
-        var Friend = true
-        console.log(Friend);
-    }
-    else{
-        var Friend = false
-        console.log(Friend);
-    }
+    
     if (xUser == currentUser.User) {
         document.getElementById("vsContent").insertAdjacentHTML("afterbegin",`<div id="frd-pro">
         <img id="Iicon" src="${xIcon}" alt="">
@@ -211,6 +205,16 @@ function inspect(x) {
         <div id="Iname">${xUser}</div>
         <a id="frd-add" onclick="ADD()">Add</a>
     </div>`)
+        if(ListFriend[USER.indexOf(currentUser.User)].includes(xUser)){
+            var Friend = true
+            document.getElementById("frd-add").innerHTML = "Unfriend"
+            console.log(Friend);
+        }
+        else{
+            var Friend = false
+            document.getElementById("frd-add").innerHTML = "Add"
+            console.log(Friend);
+        }
     }
     
     if (xUser == currentUser.User) {
@@ -388,3 +392,27 @@ function askfalfkalfkj() {
         c = true
     }
 }
+
+function genfrd(){
+    document.getElementById("frnd-content").innerHTML = ""
+    if(currentListFriend.length == 0){
+        document.getElementById("TINF").style.display = "block"
+    }
+    else{
+        for (let i = 0; i < currentListFriend.length; i++) {
+            document.getElementById("TINF").style.display = "none"
+            function un() {
+                currentListFriend.splice(currentListFriend.indexOf(i), 1)
+                Friend = false
+                localStorage.setItem("ListFriend", JSON.stringify(ListFriend))
+            }
+
+            document.getElementById("frnd-content").insertAdjacentHTML("beforeend",`
+            <div id="frd-e">
+                <img id="frd-icon" onclick="inspect('${currentListFriend[i]}')" src="${Account[USER.indexOf(currentListFriend[i])].icon}" alt="">
+                <div id="frd-name" onclick="inspect('${currentListFriend[i]}')">${currentListFriend[i]}</div>
+            </div>`)
+        }
+    }
+}
+genfrd()
