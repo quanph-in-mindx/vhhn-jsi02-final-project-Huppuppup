@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -8,14 +9,15 @@ import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstati
 const firebaseConfig = {
     apiKey: "AIzaSyAU-tmQhd29vnzqnrNm3QpsthT6oCcaz7Y",
     authDomain: "eman-tcejorp.firebaseapp.com",
+    databaseURL: "https://eman-tcejorp-default-rtdb.firebaseio.com",
     projectId: "eman-tcejorp",
     storageBucket: "eman-tcejorp.appspot.com",
     messagingSenderId: "180268626184",
     appId: "1:180268626184:web:8c9e4bdd7514b39020fcbd"
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const signInWithGoogle = () => {
@@ -83,4 +85,4 @@ const signInWithGoogle = () => {
             // ...
         });
 }
-export { app, auth, signInWithGoogle }
+export { app, auth, signInWithGoogle, database }

@@ -25,7 +25,7 @@
     border-bottom: 2px black solid;
 }
 #btuh{
-    margin-left: 20px;
+    margin-left:100px;
     padding-top: 50px;
     width: 600px;
 }
@@ -47,7 +47,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
     margin-left: 8px;
     font-size: 25px;
     border: 2px black solid;
@@ -247,7 +247,7 @@
     align-items: center;
     font-size: 25px;
     position: fixed;
-    top: 144px;
+    top: 150px;
     left: 32px;
     z-index: 9999;
 }
@@ -265,7 +265,7 @@
     align-items: center;
     font-size: 25px;
     position: fixed;
-    top: 94px;
+    top: 100px;
     left: 32px;
     z-index: 9999;
 }
@@ -456,10 +456,10 @@
     margin-left: 340px;
 }
 #frnd{
-    width:362px;
+    width:442px;
     position: relative;
-    top: 100px;
-    left: 26px;
+    top: 99.5px;
+    left: 108px;
     display: flex;
     flex-direction: column;
     padding-top: 20px;
@@ -535,3 +535,51 @@
     display: flex;
     flex-direction: column;
 }
+#Chat{
+    width: 140px;
+    height: 50px;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 25px;
+    border: 2px black solid;
+}
+#Chat-space{
+    width: 440px;
+    height: 360px;
+    background-color: black;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    border-radius: 10px;
+    top: 380px;
+    left: 1068px;
+}
+#Chat-screen{
+    width: 100%;
+    height: 90%;
+    background-color: black;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+#Type{
+    width: 100%;
+    height: 10%;
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#Chat-input{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-left: 4px;
+}
+

@@ -9,24 +9,24 @@
     <!-- Include the TailwindCSS library on your page -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="CK.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body class="flex items-start justify-center h-full bg-gray-50">
     <div class="flex items-center justify-center w-full max-w-full">
         <!-- Element Here -->
-        
+
         <section class="relative w-full">
             <div class="relative">
                 <a onclick="MyAccount()" id="Home">My account</a>
                 <a onclick="out()" id="SignOut" href="/login.html">Sign out</a>
             </div>
-            
 
-            <section id="Taskbar" class="Taskbar overflow-hidden fixed top-0 w-full flex flex-row z-50 w-full px-8 text-gray-700 bg-black body-font"
-                >
-                <div
-                    class="m-0 flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row">
+
+            <section id="Taskbar"
+                class="Taskbar overflow-hidden fixed top-0 w-full flex flex-row z-50 w-full px-8 text-gray-700 bg-black body-font">
+                <div class="m-0 flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row">
                     <div id="Main-profile" class="flex flex-row">
                         <div class="h-max w-max" id="IconM"></div>
                         <div class="flex flex-col">
@@ -37,16 +37,16 @@
                 </div>
                 <div id="Taskbar-Content">
                 </div>
-                
+
             </section>
 
             <div class="flex flex-row h-full">
                 <div id="butuba" onclick="back()"><span id="lmmmmmm" class="material-symbols-outlined">
-                    keyboard_return
+                        keyboard_return
                     </span>
                 </div>
                 <div class="posts flex flex-col relative">
-                    
+
                     <div id="btuh" class="flex flex-col h-full gap-10 border-x-2 border-black">
 
                         <p id="p123" style="font-size: 25px; display: none;">There is no friend</p>
@@ -61,7 +61,9 @@
                             </div>
                             <div id="a123" class="flex flex-col">
                                 <div id="Add-img">
-                                    <div id="link"><p id="link-text">LINK</p></div>
+                                    <div id="link">
+                                        <p id="link-text">LINK</p>
+                                    </div>
                                     <input id="img-input" type="url">
                                     <div id="x" onclick="endPickIMG()">X</div>
                                 </div>
@@ -72,18 +74,30 @@
                     </div>
                 </div>
                 <div id="frnd">
-                    <div style="height: 62px;width: 100%;font-size: 26px;padding:0px 20px 20px 140px;border-bottom: 2px black solid;">Friends</div>
-                    <div id="TINF" style="display: none;font-size: 20px;padding-left: 106px;margin-top: 20px">There is no friend</div>
+                    <div
+                        style="height: 62px;width: 100%;font-size: 26px;padding:0px 20px 20px 184px;border-bottom: 2px black solid;">
+                        Friends</div>
+                    <div id="TINF" style="display: none;font-size: 20px;padding-left: 154px;margin-top: 20px">There is
+                        no friend</div>
                     <div id="frnd-content">
 
                     </div>
+                    
+                </div>
+                <div id="Chat-space">
+                    <div id="Chat-screen"></div>
+                    <div id="Type"><input id="Chat-input" type="text"></div>
                 </div>
             </div>
-
+            
         </section>
 
     </div>
     <script src="CK.js"></script>
+    <script type="module">
+        import { getDatabase } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+        import { database } from "./js.js"
+    </script>
 </body>
 
 </html>

@@ -7,7 +7,6 @@ const currentUser = JSON.parse(localStorage.getItem("CurrentUser"))
 const currentPlace = USER.indexOf(currentUser.User)
 const currentListFriend = ListFriend[USER.indexOf(currentUser.User)]
 document.getElementById("Icon1").insertAdjacentHTML("afterbegin", `<img style="border-radius: 50%;" src="${currentUser.Icon}" alt="">`)
-var Friend = false
 const bruhPost = JSON.parse(localStorage.getItem("bruhPost"))
 var imgDIS = false
 var c = false
@@ -168,6 +167,7 @@ function out() {
     localStorage.setItem("CurrentUser", JSON.stringify(currentUser))
 }
 function ADD() {
+    var Friend = ListFriend[USER.indexOf(currentUser.User)].includes(Iname.textContent);
     if (Friend == true) {
         currentListFriend.splice(currentListFriend.indexOf(Iname), 1)
         Friend = false
@@ -192,31 +192,37 @@ function inspect(x) {
     document.getElementById("Content").style.display = "none"
     document.getElementById("vsContent").style.display = "flex"
     document.getElementById("butuba").style.display = "block"
-    
+    if (ListFriend[USER.indexOf(currentUser.User)].includes(xUser)) {
+        var Friend = true
+    }
+    else {
+        var Friend = false
+    }
     if (xUser == currentUser.User) {
-        document.getElementById("vsContent").insertAdjacentHTML("afterbegin",`<div id="frd-pro">
+        document.getElementById("vsContent").insertAdjacentHTML("afterbegin", `<div id="frd-pro">
         <img id="Iicon" src="${xIcon}" alt="">
         <div id="Iname">${xUser}</div>
     </div>`)
     }
-    else{
-        document.getElementById("vsContent").insertAdjacentHTML("afterbegin",`<div id="frd-pro">
+    else {
+        document.getElementById("vsContent").insertAdjacentHTML("afterbegin", `<div id="frd-pro">
         <img id="Iicon" src="${xIcon}" alt="">
         <div id="Iname">${xUser}</div>
+        <div id="Chat" onclick="chat()">Chat</div>
         <a id="frd-add" onclick="ADD()">Add</a>
     </div>`)
-        if(ListFriend[USER.indexOf(currentUser.User)].includes(xUser)){
+        if (ListFriend[USER.indexOf(currentUser.User)].includes(xUser)) {
             var Friend = true
             document.getElementById("frd-add").innerHTML = "Unfriend"
             console.log(Friend);
         }
-        else{
+        else {
             var Friend = false
             document.getElementById("frd-add").innerHTML = "Add"
             console.log(Friend);
         }
     }
-    
+
     if (xUser == currentUser.User) {
         if (xListPost.length == 0) {
             document.getElementById("Content").insertAdjacentHTML("beforeend", "There is no post")
@@ -345,6 +351,10 @@ function MyAccount() {
     document.getElementById("butuba").style.position = "fixed"
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+    document.getElementById("vsContent").insertAdjacentHTML("afterbegin", `<div id="frd-pro">
+        <img id="Iicon" src="${currentUser.Icon}" alt="">
+        <div id="Iname">${currentUser.User}</div>
+    </div>`)
     if (currentListPost.length == 0) {
         document.getElementById("vsContent").insertAdjacentHTML("beforeend", "There is no post")
     }
@@ -393,12 +403,12 @@ function askfalfkalfkj() {
     }
 }
 
-function genfrd(){
+function genfrd() {
     document.getElementById("frnd-content").innerHTML = ""
-    if(currentListFriend.length == 0){
+    if (currentListFriend.length == 0) {
         document.getElementById("TINF").style.display = "block"
     }
-    else{
+    else {
         for (let i = 0; i < currentListFriend.length; i++) {
             document.getElementById("TINF").style.display = "none"
             function un() {
@@ -407,7 +417,7 @@ function genfrd(){
                 localStorage.setItem("ListFriend", JSON.stringify(ListFriend))
             }
 
-            document.getElementById("frnd-content").insertAdjacentHTML("beforeend",`
+            document.getElementById("frnd-content").insertAdjacentHTML("beforeend", `
             <div id="frd-e">
                 <img id="frd-icon" onclick="inspect('${currentListFriend[i]}')" src="${Account[USER.indexOf(currentListFriend[i])].icon}" alt="">
                 <div id="frd-name" onclick="inspect('${currentListFriend[i]}')">${currentListFriend[i]}</div>
@@ -416,3 +426,11 @@ function genfrd(){
     }
 }
 genfrd()
+function chat(){;
+    if (document.getElementById("Chat-space").style.display == "") {
+        document.getElementById("Chat-space").style.display = "flex"
+    }
+    else if (document.getElementById("Chat-space").style.display == "flex") {
+        document.getElementById("Chat-space").style.display = ""
+    }
+}
